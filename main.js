@@ -28,12 +28,24 @@ function run() {
 
     }
     else {
-        if(n>9){
+        if (n > 9) {
             alert("Az oldal csak 9 különböző színű kocka megjelenítését tudja garantálni")
+            if (n > 200) {
+                alert("Kisebb számot kell megadni")
+            }
+            else {
+                deleteAllCubes()
+                cubes = []
+                generateColor(start, end, n)
+            }
+
         }
-        deleteAllCubes()
-        cubes = []
-        generateColor(start, end, n)
+        else {
+            deleteAllCubes()
+            cubes = []
+            generateColor(start, end, n)
+        }
+
     }
 
 }
@@ -158,7 +170,7 @@ function generateText(colors) {
     $(".colors-block").html("")
     for (let i = 0; i < colors.length; i++) {
         $(".colors-block").append(`
-        <p style="margin: 2vw;color:`+colors[i]+`" >`+colors[i]+`</p>
+        <p style="margin: 2vw;color:`+ colors[i] + `" >` + colors[i] + `</p>
     `)
     }
 }
